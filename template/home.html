@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>To Do</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 mt-3">
+            <div class="card">
+                <div class="card-body">
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-9 ">
+                                <div class="form-group">
+                                    <input class="form-control mt-2" name="name" placeholder="Task" type="text">
+                                    <input class="form-control mt-2" name="priority" placeholder="Priority" type="text">
+                                    <input class="form-control mt-2" name="date" placeholder="Deadline" type="date">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input class="form-control mt-2 btn btn-success" type="submit">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 mt-3">
+
+            <h3 class="mb-3">Task To Do...</h3>
+            {% for task in todo %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        Task To Do
+                    </div>
+                    <div class="card-text">
+
+                        <h5>{{ task.name }}</h5>
+                        <p> Priority: {{ task.priority }}</p>
+                        <p>Deadline: {{task.date}}</p>
+                        <a class="btn btn-warning" href="{% url 'todoapp:cupdate' task.id %}">Update</a>
+                        <a class="btn btn-danger" href="{% url 'todoapp:cdelete' task.id %}">Delete</a>
+                        <a class="btn btn-primary" href="{% url 'todoapp:cdetail' task.id %}">View</a>
+
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

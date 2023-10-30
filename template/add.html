@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-9 ">
+            <div class="form-group">
+                <input class="form-control mt-2" name="name" placeholder="Task" type="text">
+                <input class="form-control mt-2" name="priority" placeholder="Priority" type="text">
+                <input class="form-control mt-2" name="date" placeholder="Deadline" type="date">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input class="form-control mt-2 btn btn-success" type="submit">
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock%}

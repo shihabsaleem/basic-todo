@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
+.banner{
+background-color: #eee;
+width: 100%;
+height:auto;
+}
+.banner-text{
+padding: 1rem;
+color: teal;
+font-family: 'DM Serif Display', serif;
+}

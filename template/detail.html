@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        Task To Do
+                    </div>
+                    <div class="card-text">
+                        <h5>{{ task.name }}</h5>
+                        <p> Priority: {{ task.priority }}</p>
+                        <p>Deadline: {{task.date}}</p>
+                        <a class="btn btn-warning" href="{% url 'todoapp:cupdate' task.id %}">Update</a>
+                        <a class="btn btn-danger" href="{% url 'todoapp:delete' task.id %}">Done</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
